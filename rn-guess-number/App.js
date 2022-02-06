@@ -15,8 +15,8 @@ const fetchFonts = () =>
 
 export default function App() {
   const [selectedNumber, setSelectedNumber] = useState();
-  const [finished, setFinished] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const [numRounds, setNumRounds] = useState(0);
 
   if (!loaded) {
     return (
@@ -29,18 +29,18 @@ export default function App() {
   }
 
   const configureNewGame = () => {
-    setFinished(false);
+    setNumRounds(0);
     setSelectedNumber(0);
   };
 
   let content;
-  if (finished) {
-    content = <GameOverScreen onRestartGame={configureNewGame} />;
+  if (numRounds > 0) {
+    content = <GameOverScreen numRounds={numRounds} selectedNumber={selectedNumber} onRestartGame={configureNewGame} />;
   } else if (selectedNumber) {
     content = (
       <GameScreen
         selectedNumber={selectedNumber}
-        onGameFinished={() => setFinished(true)}
+        onGameFinished={numRounds => setNumRounds(numRounds)}
       />
     );
   } else {

@@ -12,16 +12,16 @@ const SelectedNumber = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-      backgroundColor: colors.primary,
-      alignItems: 'center',
-      padding: 20,
-      marginVertical: 5,
-      borderRadius: 4
+    backgroundColor: colors.primary,
+    alignItems: "center",
+    padding: 20,
+    marginVertical: 5,
+    borderRadius: 4,
   },
   number: {
     fontSize: 32,
-    color: 'white'
-  }
+    color: "white",
+  },
 });
 
 export default SelectedNumber;
